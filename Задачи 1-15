@@ -1,0 +1,168 @@
+# Задача 1
+	print('Задача 1')
+	import numpy as np
+	import numpy.linalg
+	import numpy.matlib
+	arr = np.random.sample((3,4))
+	print(arr)
+	sums=np.sum(arr, axis=0)
+	print(sums)
+	row_index=np.argmax(sums, axis=0)
+	print(row_index)
+	print(sums[row_index])
+	arr0=arr.transpose()
+	el=np.max(arr0[row_index])
+	print(el)
+	
+	# Задача 2
+	print('Задача 2')
+	avg=np.average(arr, axis=1)
+	print(avg)
+	row_index1=np.argmax(avg, axis=0)
+	print(row_index1)
+	print(avg[row_index1])
+	el1=np.max(arr[row_index1])
+	print(el1)
+	
+	# Задача 3
+	print('Задача 3')
+	#arrt=arr.transpose()
+	arrt =np.abs(arr)
+	sum1=np.sum(arrt, axis=0)
+	print(sum1)
+	row_index2=np.argmax(sum1)
+	print(row_index2)
+	arrt0=arrt.transpose()
+	el2=np.min(arrt0[row_index2])
+	print(el2)
+	
+	# Задача 4
+	print('Задача 4')
+	avg2= np.average(arr, axis=1)
+	print(avg2)
+	el3=np.min(avg2)
+	print(el3)
+	
+#Задача 5
+print('Задача 5')
+import numpy as np
+import numpy.linalg
+import numpy.matlib
+arr = np.random.sample((3,4))
+print(arr)
+avgsto=np.average(arr, axis=0)
+avgstr=np.average(arr, axis=1)
+print(avgsto)
+print(avgstr)
+arr1=np.array([[avgsto[0],avgsto[1],avgsto[2], avgsto[3], 0],
+               [0,0,0,0, avgstr[0]],
+               [0,0,0,0, avgstr[1]],
+               [0,0,0,0, avgstr[2]]])
+print(arr1)
+
+# Задача 6
+print('Задача 6')
+sum=np.sum(arr)
+print(sum)
+sums=np.sum(arr, axis=0)
+print(sums)
+sums=sums/sum
+print(sums)
+arr2=np.array([[sums[0],sums[1],sums[2], sums[3], 0],
+               [0,0,0,0,0],
+               [0,0,0,0,0],
+               [0,0,0,0,0]])
+print(arr2)
+
+# Задача 7
+print('Задача 7')
+sum1=np.sum(arr)
+print(sum1)
+sums1=np.sum(arr, axis=1)
+print(sums1)
+sums1=sums1/sum1
+print(sums1)
+arr3=np.array([[0,0,0,0, sums[0]],
+               [0,0,0,0,sums[1]],
+               [0,0,0,0,sums[2]]])
+print(arr3)
+
+# Задача 8
+print('Задача 8')
+arr[0,1]=-5
+arr[2,3]=-10
+arr4=np.where(arr<0,1,0)
+#np.where(arr4>0,arr4,0*arr4)
+print(arr4)
+otrstr=np.sum(arr4, axis=1)
+otrstol=np.sum(arr4, axis=0)
+arr5=np.array([[otrstol[0],otrstol[1],otrstol[2], 0, 0],
+               [0,0,0,0,otrstr[0]],
+               [0,0,0,0,otrstr[1]],
+               [0,0,0,0,otrstr[2]]])
+print(arr5)
+
+
+#Задача 10
+print('Задача 10')
+import numpy as np
+import numpy.linalg
+import numpy.matlib
+arr = np.random.sample((3,4))
+print(arr)
+k=2
+arr1=np.array([arr[0,k],arr[1,k],arr[2,k]])
+print(arr1)
+for i in range(3):
+    for j in range(4):
+        arr[i,j]=arr[i,j]*arr1[i]
+print(arr)
+
+#Задача 11
+print("_________________________________________________")
+print('Задача 11')
+k=2
+for i in range(3):
+    for j in range(4):
+        arr[i,j]=arr[i,j]+arr[k,j]
+print(arr)
+
+#Задача 12
+print("_________________________________________________")
+print('Задача 12')
+arr1=np.max(arr, axis=1)
+for i in range(3):
+    for j in range(4):
+        arr[i,j]=arr[i,j]/arr1[i]
+print(arr)
+
+#Задача 13
+print("_________________________________________________")
+print('Задача 13')
+arr1=np.max(arr, axis=0)
+print(arr1)
+for j in range(4):
+    for i in range(3):
+        arr[i,j]=arr[i,j]/arr1[j]
+print(arr)
+
+#Задача 14
+print("_________________________________________________")
+print('Задача 14')
+m=np.max(arr)
+print('Максимальный элемент=',m)
+arr=arr/m
+print(arr)
+
+#Задача 15
+print("_________________________________________________")
+print('Задача 15')
+m=3
+n=4
+arr2=np.arange(m*n).reshape(m,n)
+print(arr2)
+h=2
+l1=np.where(arr2==h,1,0)
+L2=np.count_nonzero(l1, axis=0)
+L3=np.where(L2>0,'есть','нет')
+print(L3)
